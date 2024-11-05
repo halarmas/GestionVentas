@@ -41,6 +41,34 @@ try{
 
 });
 
+router.post("/", async function (req, res) {
+	const { nombre, apellido1, apellido2, comision } = req.body;
+
+
+	if(nombre == undefined || apellido1 == undefined || apellido2 == undefined || comision == undefined){
+		let msg = "El nombre, los dos apellidos y la comision del comercial son obligatorios"
+		res.status(400).json({msg});
+	}else{
+
+	let comercial = {
+		Nombre: nombre,
+		Apellido1: apellido1,
+        Apellido2: apellido2,
+		Comision: comision,
+	};
+	try{
+	let resultado = await comercialService.createComercial(comercial);
+    const data = resultado.data;
+    const msg = "Se ha creado el comercial correctamente";
+    res.status(200).json({msg,comercial});
+	
+}	catch(err){
+		console.error("ERROR en BBDD.", err.message);
+		res.sendStatus(500);
+		}
+	}
+});
+
 
 
 module.exports = router;

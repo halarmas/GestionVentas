@@ -10,6 +10,7 @@ app.use(
 app.use(bodyParser.json());
 
 app.use("/comercial", require("./routes/comercial"));
+app.use("/cliente", require("./routes/cliente"));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT);
