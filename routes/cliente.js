@@ -51,11 +51,11 @@ router.post("/", async function (req, res) {
 	}else{
 
 	let cliente = {
-		Nombre: nombre,
-		Apellido1: apellido1,
-        Apellido2: apellido2,
-		Ciudad: ciudad,
-        Categoria: categoria,
+		nombre: nombre,
+		apellido1: apellido1,
+        apellido2: apellido2,
+		ciudad: ciudad,
+        categoria: categoria,
 	};
 	try{
 	let resultado = await clienteService.createCliente(cliente);

@@ -51,10 +51,10 @@ router.post("/", async function (req, res) {
 	}else{
 
 	let comercial = {
-		Nombre: nombre,
-		Apellido1: apellido1,
-        Apellido2: apellido2,
-		Comision: comision,
+		nombre: nombre,
+		apellido1: apellido1,
+        apellido2: apellido2,
+		comision: comision,
 	};
 	try{
 	let resultado = await comercialService.createComercial(comercial);
