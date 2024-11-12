@@ -58,9 +58,10 @@ router.post("/", async function (req, res) {
 	};
 	try{
 	let resultado = await comercialService.createComercial(comercial);
-    const data = resultado.data;
-    const msg = "Se ha creado el comercial correctamente";
-    res.status(200).json({msg,comercial});
+    console.debug(data);
+    const msg = "Se ha creado el comercial correctamente con id:" +data.insertId;
+	const comercialCreado = await comercialService.getOneComercial(data.insertId);
+    res.status(200).json(helper.outputJSON(msg,comercialCreado[0]));
 	
 }	catch(err){
 		console.error("ERROR en BBDD.", err.message);
