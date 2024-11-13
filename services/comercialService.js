@@ -18,6 +18,7 @@ async function getComerciales(){
   
     const data = helper.emptyOrRows(rows);
   
+    console.log('SELECT * FROM comercial WHERE id=' + id + ';')  
     return {data};
     
   }
